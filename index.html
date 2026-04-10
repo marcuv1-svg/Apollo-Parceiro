@@ -10,7 +10,6 @@
   :root {
     --bg: #0a0a0a;
     --surface: #141414;
-    --surface2: #1c1c1c;
     --border: rgba(255,255,255,0.08);
     --border2: rgba(255,255,255,0.14);
     --gold: #c9a84c;
@@ -20,52 +19,30 @@
     --text-sec: #8a8680;
     --text-dim: #4a4845;
     --green: #4caf7d;
-    --orange: #e8a03a;
     --red: #e05555;
     --font: 'DM Sans', sans-serif;
     --mono: 'DM Mono', monospace;
   }
   body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; -webkit-font-smoothing: antialiased; }
-
-  /* HEADER */
   .header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); }
   .header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px 12px; }
   .logo-name { font-size: 18px; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
   .logo-tag { font-size: 10px; color: var(--text-sec); letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--mono); margin-top: 1px; }
   .count-badge { background: var(--gold-dim); border: 0.5px solid var(--gold); color: var(--gold-light); font-size: 11px; font-family: var(--mono); padding: 4px 10px; border-radius: 20px; }
-
-  /* FILTERS */
   .filters { padding: 0 16px 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .filter-wrap { display: flex; flex-direction: column; gap: 4px; }
   .filter-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); font-family: var(--mono); padding-left: 2px; }
   select { background: var(--surface); border: 0.5px solid var(--border2); color: var(--text); font-family: var(--font); font-size: 13px; padding: 8px 10px; border-radius: 8px; width: 100%; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
   select:focus { outline: none; border-color: var(--gold); }
-
   .results-bar { padding: 8px 20px; font-size: 11px; color: var(--text-dim); font-family: var(--mono); border-top: 0.5px solid var(--border); background: var(--bg); }
-
-  /* GRID */
-  .grid { padding: 12px 16px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-
-  /* CARD */
-  .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color 0.2s, transform 0.15s; animation: fadeUp 0.3s ease both; }
+  .grid { padding: 12px 16px 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+  .card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; padding: 14px 13px; transition: border-color 0.2s, transform 0.15s; animation: fadeUp 0.3s ease both; }
   .card:active { transform: scale(0.97); }
   .card:hover { border-color: var(--border2); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* PHOTO */
-  .card-photo { width: 100%; aspect-ratio: 1/1; background: #1a1a1a; position: relative; overflow: hidden; }
-  .card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .card-photo img.error { display: none; }
-  .placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #111; }
-  .placeholder-icon { width: 48px; height: 48px; opacity: 0.18; }
-  .placeholder-label { font-size: 10px; color: var(--text-dim); font-family: var(--mono); letter-spacing: 0.08em; }
-  .color-stripe { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; }
-
-  /* CARD BODY */
-  .card-body { padding: 11px 12px 13px; }
   .card-model { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; }
   .card-mem { font-size: 11px; color: var(--text-sec); font-family: var(--mono); margin-top: 2px; }
-  .divider { height: 0.5px; background: var(--border); margin: 9px 0; }
+  .divider { height: 0.5px; background: var(--border); margin: 10px 0; }
   .color-row { display: flex; align-items: center; gap: 7px; }
   .color-dot { width: 12px; height: 12px; border-radius: 50%; border: 0.5px solid rgba(255,255,255,0.15); flex-shrink: 0; }
   .color-name { font-size: 11px; color: var(--text-sec); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -78,7 +55,6 @@
   .badge-off { background: rgba(224,85,85,0.1); color: var(--red); border: 0.5px solid rgba(224,85,85,0.25); }
   .badge-other { background: rgba(201,168,76,0.1); color: var(--gold); border: 0.5px solid rgba(201,168,76,0.25); }
   .price { margin-top: 10px; font-size: 17px; font-weight: 600; color: var(--gold-light); font-family: var(--mono); }
-
   .empty { grid-column: 1/-1; text-align: center; padding: 3rem 1rem; color: var(--text-dim); font-size: 13px; font-family: var(--mono); }
   .footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 12px 20px; background: rgba(10,10,10,0.97); border-top: 0.5px solid var(--border); text-align: center; font-size: 10px; color: var(--text-dim); font-family: var(--mono); letter-spacing: 0.08em; }
 </style>
@@ -130,51 +106,44 @@
 <div class="footer">APOLLO COMPANY · TATUÍ · SP</div>
 
 <script>
-// ─────────────────────────────────────────
-// ESTOQUE — edite aqui para adicionar/remover aparelhos
-// foto: caminho da imagem na pasta "fotos/"
-//       deixe foto:"" se ainda não tiver foto
-// ─────────────────────────────────────────
+// ── ESTOQUE ── edite aqui para adicionar ou remover aparelhos ──
 const items = [
-  {model:"iPhone 11",       bio:"ON",       bat:73,  gb:64,  cor:"Vermelho",      hex:"#c0392b", venda:1200, foto:"fotos/iphone11-vermelho-64.jpg"},
-  {model:"iPhone 11",       bio:"ON",       bat:75,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:1400, foto:"fotos/iphone11-preto-128.jpg"},
-  {model:"iPhone 11",       bio:"ON",       bat:71,  gb:64,  cor:"Branco",        hex:"#e8e8e8", venda:1400, foto:""},
-  {model:"iPhone 11",       bio:"ON",       bat:74,  gb:64,  cor:"Branco",        hex:"#e8e8e8", venda:1400, foto:""},
-  {model:"iPhone 11 Pro",   bio:"OFF",      bat:71,  gb:64,  cor:"Verde escuro",  hex:"#2d5a27", venda:1500, foto:""},
-  {model:"iPhone 11 Pro Max",bio:"ON",      bat:75,  gb:256, cor:"Amarelo",       hex:"#f1c40f", venda:1800, foto:""},
-  {model:"iPhone 12 Pro Max",bio:"ON",      bat:80,  gb:128, cor:"Azul",          hex:"#2980b9", venda:2400, foto:""},
-  {model:"iPhone 13",       bio:"ON",       bat:87,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:2400, foto:""},
-  {model:"iPhone 13",       bio:"ON",       bat:100, gb:128, cor:"Preto",         hex:"#2c2c2c", venda:2400, foto:""},
-  {model:"iPhone 13",       bio:"ON",       bat:84,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:2400, foto:""},
-  {model:"iPhone 13",       bio:"ON",       bat:70,  gb:128, cor:"Rosa",          hex:"#f4a7c0", venda:2400, foto:""},
-  {model:"iPhone 13 Pro",   bio:"ON",       bat:75,  gb:128, cor:"Amarelo",       hex:"#f1c40f", venda:3000, foto:""},
-  {model:"iPhone 13 Pro Max",bio:"ON",      bat:85,  gb:128, cor:"Verde escuro",  hex:"#2d5a27", venda:3100, foto:""},
-  {model:"iPhone 13 Pro Max",bio:"ON",      bat:85,  gb:256, cor:"Cinza",         hex:"#7f8c8d", venda:3500, foto:""},
-  {model:"iPhone 14",       bio:"ON",       bat:79,  gb:128, cor:"Branco",        hex:"#e8e8e8", venda:2900, foto:""},
-  {model:"iPhone 14",       bio:"ON",       bat:84,  gb:128, cor:"Rosa",          hex:"#f4a7c0", venda:2900, foto:""},
-  {model:"iPhone 14",       bio:"ON",       bat:81,  gb:256, cor:"Vermelho",      hex:"#c0392b", venda:3000, foto:""},
-  {model:"iPhone 14",       bio:"ON",       bat:83,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:2900, foto:""},
-  {model:"iPhone 15",       bio:"ON",       bat:95,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:3400, foto:""},
-  {model:"iPhone 14 Plus",  bio:"ON",       bat:86,  gb:128, cor:"Branco",        hex:"#e8e8e8", venda:3000, foto:"fotos/iphone14plus-branco-128.jpeg"},
-  {model:"iPhone 14 Plus",  bio:"ON",       bat:83,  gb:128, cor:"Branco",        hex:"#e8e8e8", venda:3000, foto:"fotos/iphone14plus-branco-128.jpeg"},
-  {model:"iPhone 14 Pro",   bio:"ON",       bat:null,gb:128, cor:"Roxo",          hex:"#8e44ad", venda:3400, foto:""},
-  {model:"iPhone 14 Pro Max",bio:"ON",      bat:87,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:3800, foto:""},
-  {model:"iPhone 14 Pro Max",bio:"ON",      bat:83,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:3800, foto:""},
-  {model:"iPhone 14 Pro Max",bio:"ON",      bat:84,  gb:128, cor:"Preto",         hex:"#2c2c2c", venda:3800, foto:""},
-  {model:"iPhone 14 Pro Max",bio:"ON",      bat:83,  gb:256, cor:"Roxo",          hex:"#8e44ad", venda:3800, foto:"fotos/iphone14promax-roxo-128.jpeg"},
-  {model:"iPhone 15 Pro",   bio:"ON",       bat:81,  gb:128, cor:"Cinza",         hex:"#7f8c8d", venda:4150, foto:""},
-  {model:"iPhone 15 Pro Max",bio:"ON",      bat:86,  gb:256, cor:"Branco",        hex:"#e8e8e8", venda:5000, foto:"fotos/iphone15promax-branco-256.jpeg"},
-  {model:"iPhone 15 Pro Max",bio:"ON",      bat:84,  gb:256, cor:"Preto",         hex:"#2c2c2c", venda:5000, foto:""},
-  {model:"Macbook Air 2015",bio:"ON",       bat:100, gb:256, cor:"Prata",         hex:"#bdc3c7", venda:1400, foto:""},
-  {model:"Macbook Pro",     bio:"ON",       bat:56,  gb:256, cor:"Cinza espacial",hex:"#5d6d7e", venda:3000, foto:""},
-  {model:"Macbook Pro",     bio:"Touch ID", bat:88,  gb:512, cor:"Cinza espacial",hex:"#5d6d7e", venda:6800, foto:"fotos/macbookpro-512.jpeg"},
-  {model:"iPad Pro 11",     bio:"ON",       bat:null,gb:256, cor:"Cinza",         hex:"#7f8c8d", venda:3990, foto:""},
-  {model:"iPad 6 Mini",     bio:"ON",       bat:null,gb:256, cor:"Cinza",         hex:"#7f8c8d", venda:2900, foto:""},
+  {model:"iPhone 11",        bio:"ON",       bat:73,  gb:64,  cor:"Vermelho",       hex:"#c0392b", venda:1200},
+  {model:"iPhone 11",        bio:"ON",       bat:75,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:1400},
+  {model:"iPhone 11",        bio:"ON",       bat:71,  gb:64,  cor:"Branco",         hex:"#e8e8e8", venda:1400},
+  {model:"iPhone 11",        bio:"ON",       bat:74,  gb:64,  cor:"Branco",         hex:"#e8e8e8", venda:1400},
+  {model:"iPhone 11 Pro",    bio:"OFF",      bat:71,  gb:64,  cor:"Verde escuro",   hex:"#2d5a27", venda:1500},
+  {model:"iPhone 11 Pro Max",bio:"ON",       bat:75,  gb:256, cor:"Amarelo",        hex:"#f1c40f", venda:1800},
+  {model:"iPhone 12 Pro Max",bio:"ON",       bat:80,  gb:128, cor:"Azul",           hex:"#2980b9", venda:2400},
+  {model:"iPhone 13",        bio:"ON",       bat:87,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:2400},
+  {model:"iPhone 13",        bio:"ON",       bat:100, gb:128, cor:"Preto",          hex:"#2c2c2c", venda:2400},
+  {model:"iPhone 13",        bio:"ON",       bat:84,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:2400},
+  {model:"iPhone 13",        bio:"ON",       bat:70,  gb:128, cor:"Rosa",           hex:"#f4a7c0", venda:2400},
+  {model:"iPhone 13 Pro",    bio:"ON",       bat:75,  gb:128, cor:"Amarelo",        hex:"#f1c40f", venda:3000},
+  {model:"iPhone 13 Pro Max",bio:"ON",       bat:85,  gb:128, cor:"Verde escuro",   hex:"#2d5a27", venda:3100},
+  {model:"iPhone 13 Pro Max",bio:"ON",       bat:85,  gb:256, cor:"Cinza",          hex:"#7f8c8d", venda:3500},
+  {model:"iPhone 14",        bio:"ON",       bat:79,  gb:128, cor:"Branco",         hex:"#e8e8e8", venda:2900},
+  {model:"iPhone 14",        bio:"ON",       bat:84,  gb:128, cor:"Rosa",           hex:"#f4a7c0", venda:2900},
+  {model:"iPhone 14",        bio:"ON",       bat:81,  gb:256, cor:"Vermelho",       hex:"#c0392b", venda:3000},
+  {model:"iPhone 14",        bio:"ON",       bat:83,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:2900},
+  {model:"iPhone 15",        bio:"ON",       bat:95,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:3400},
+  {model:"iPhone 14 Plus",   bio:"ON",       bat:86,  gb:128, cor:"Branco",         hex:"#e8e8e8", venda:3000},
+  {model:"iPhone 14 Plus",   bio:"ON",       bat:83,  gb:128, cor:"Branco",         hex:"#e8e8e8", venda:3000},
+  {model:"iPhone 14 Pro",    bio:"ON",       bat:null,gb:128, cor:"Roxo",           hex:"#8e44ad", venda:3400},
+  {model:"iPhone 14 Pro Max",bio:"ON",       bat:87,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:3800},
+  {model:"iPhone 14 Pro Max",bio:"ON",       bat:83,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:3800},
+  {model:"iPhone 14 Pro Max",bio:"ON",       bat:84,  gb:128, cor:"Preto",          hex:"#2c2c2c", venda:3800},
+  {model:"iPhone 14 Pro Max",bio:"ON",       bat:83,  gb:256, cor:"Roxo",           hex:"#8e44ad", venda:3800},
+  {model:"iPhone 15 Pro",    bio:"ON",       bat:81,  gb:128, cor:"Cinza",          hex:"#7f8c8d", venda:4150},
+  {model:"iPhone 15 Pro Max",bio:"ON",       bat:86,  gb:256, cor:"Branco",         hex:"#e8e8e8", venda:5000},
+  {model:"iPhone 15 Pro Max",bio:"ON",       bat:84,  gb:256, cor:"Preto",          hex:"#2c2c2c", venda:5000},
+  {model:"Macbook Air 2015", bio:"ON",       bat:100, gb:256, cor:"Prata",          hex:"#bdc3c7", venda:1400},
+  {model:"Macbook Pro",      bio:"ON",       bat:56,  gb:256, cor:"Cinza espacial", hex:"#5d6d7e", venda:3000},
+  {model:"Macbook Pro",      bio:"Touch ID", bat:88,  gb:512, cor:"Cinza espacial", hex:"#5d6d7e", venda:6800},
+  {model:"iPad Pro 11",      bio:"ON",       bat:null,gb:256, cor:"Cinza",          hex:"#7f8c8d", venda:3990},
+  {model:"iPad 6 Mini",      bio:"ON",       bat:null,gb:256, cor:"Cinza",          hex:"#7f8c8d", venda:2900},
 ];
 
-// ─────────────────────────────────────────
-// LÓGICA — não precisa editar abaixo
-// ─────────────────────────────────────────
 const modelSel = document.getElementById('f-modelo');
 const memSel   = document.getElementById('f-mem');
 const batSel   = document.getElementById('f-bat');
@@ -191,41 +160,10 @@ const badge    = document.getElementById('badge');
 });
 
 function batColor(v){ return v>=80?'#4caf7d':v>=60?'#e8a03a':'#e05555'; }
-
 function fmtBio(bio){
   if(bio==='ON')  return '<span class="badge badge-on">Face ID / Bio ON</span>';
   if(bio==='OFF') return '<span class="badge badge-off">Bio OFF</span>';
   return `<span class="badge badge-other">${bio}</span>`;
-}
-
-// SVG placeholder (ícone de câmera minimalista)
-const placeholderSVG = `
-<svg class="placeholder-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="4" y="12" width="40" height="28" rx="4" stroke="white" stroke-width="2"/>
-  <circle cx="24" cy="26" r="8" stroke="white" stroke-width="2"/>
-  <circle cx="24" cy="26" r="3" fill="white" opacity="0.3"/>
-  <path d="M16 12l3-4h10l3 4" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="38" cy="18" r="2" fill="white" opacity="0.4"/>
-</svg>`;
-
-function photoBlock(item){
-  if(item.foto){
-    return `<div class="card-photo">
-      <img src="${item.foto}" alt="${item.model}" onerror="this.classList.add('error');this.nextElementSibling.style.display='flex';">
-      <div class="placeholder" style="display:none;">
-        ${placeholderSVG}
-        <span class="placeholder-label">foto em breve</span>
-        <div class="color-stripe" style="background:${item.hex};opacity:0.6;"></div>
-      </div>
-    </div>`;
-  }
-  return `<div class="card-photo">
-    <div class="placeholder">
-      ${placeholderSVG}
-      <span class="placeholder-label">foto em breve</span>
-      <div class="color-stripe" style="background:${item.hex};opacity:0.6;"></div>
-    </div>
-  </div>`;
 }
 
 function render(){
@@ -259,19 +197,16 @@ function render(){
       : `<div class="bat-text" style="margin-top:8px;color:#3a3835;">bateria não informada</div>`;
 
     return `<div class="card" style="animation-delay:${delay}ms">
-      ${photoBlock(item)}
-      <div class="card-body">
-        <div class="card-model">${item.model}</div>
-        <div class="card-mem">${item.gb} GB</div>
-        <div class="divider"></div>
-        <div class="color-row">
-          <span class="color-dot" style="background:${item.hex};"></span>
-          <span class="color-name">${item.cor}</span>
-        </div>
-        ${batBlock}
-        ${fmtBio(item.bio)}
-        <div class="price">R$ ${item.venda.toLocaleString('pt-BR')}</div>
+      <div class="card-model">${item.model}</div>
+      <div class="card-mem">${item.gb} GB</div>
+      <div class="divider"></div>
+      <div class="color-row">
+        <span class="color-dot" style="background:${item.hex};"></span>
+        <span class="color-name">${item.cor}</span>
       </div>
+      ${batBlock}
+      ${fmtBio(item.bio)}
+      <div class="price">R$ ${item.venda.toLocaleString('pt-BR')}</div>
     </div>`;
   }).join('');
 }
